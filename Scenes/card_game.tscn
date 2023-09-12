@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dngx6nqb2p5ti"]
+[gd_scene load_steps=8 format=3 uid="uid://dngx6nqb2p5ti"]
 
+[ext_resource type="PackedScene" uid="uid://87etk10qdqqi" path="res://Scenes/Prefabs/UI/artifact.tscn" id="1_6dp5h"]
 [ext_resource type="PackedScene" uid="uid://c6pism2kgjr5c" path="res://Scenes/Prefabs/UI/popup_menu.tscn" id="1_kby38"]
+[ext_resource type="PackedScene" uid="uid://4s6bl2vvxiy6" path="res://Scenes/Prefabs/UI/stat.tscn" id="1_r4abi"]
+[ext_resource type="PackedScene" uid="uid://co4ogwar44eci" path="res://Scenes/Prefabs/UI/card.tscn" id="1_yioce"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qftcx"]
+bg_color = Color(0.937255, 0.47451, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opouf"]
+bg_color = Color(1, 0, 0.027451, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1koy"]
+bg_color = Color(1, 0.631373, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="Master" type="Control"]
 layout_mode = 3
@@ -10,6 +34,234 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.5
+offset_right = 76.5
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qftcx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+text = "Enemy"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -215.5
+offset_right = 380.0
+offset_bottom = 215.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemy" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="Enemy Stats" type="HBoxContainer" parent="VBoxContainer/Enemy"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 760.0
+offset_bottom = 70.0
+
+[node name="Stat" parent="VBoxContainer/Enemy/Enemy Stats" instance=ExtResource("1_r4abi")]
+layout_mode = 2
+
+[node name="Stat2" parent="VBoxContainer/Enemy/Enemy Stats" instance=ExtResource("1_r4abi")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_opouf")
+
+[node name="Label" parent="VBoxContainer/Enemy/Enemy Stats/Stat2" index="0"]
+text = "Health"
+
+[node name="Enemy Artifacts" type="HBoxContainer" parent="VBoxContainer/Enemy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Artifact" parent="VBoxContainer/Enemy/Enemy Artifacts" instance=ExtResource("1_6dp5h")]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1koy")
+
+[node name="Artifact2" parent="VBoxContainer/Enemy/Enemy Artifacts" instance=ExtResource("1_6dp5h")]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1koy")
+
+[node name="Artifact3" parent="VBoxContainer/Enemy/Enemy Artifacts" instance=ExtResource("1_6dp5h")]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1koy")
+
+[node name="Cards" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="Enemy Cards" type="HBoxContainer" parent="VBoxContainer/Cards"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Card" parent="VBoxContainer/Cards/Enemy Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card2" parent="VBoxContainer/Cards/Enemy Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card3" parent="VBoxContainer/Cards/Enemy Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card4" parent="VBoxContainer/Cards/Enemy Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card5" parent="VBoxContainer/Cards/Enemy Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Player Cards" type="HBoxContainer" parent="VBoxContainer/Cards"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Card" parent="VBoxContainer/Cards/Player Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card2" parent="VBoxContainer/Cards/Player Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card3" parent="VBoxContainer/Cards/Player Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card4" parent="VBoxContainer/Cards/Player Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Card5" parent="VBoxContainer/Cards/Player Cards" instance=ExtResource("1_yioce")]
+layout_mode = 2
+
+[node name="Player" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="Player Stats" type="HBoxContainer" parent="VBoxContainer/Player"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 760.0
+offset_bottom = 70.0
+
+[node name="Stat" parent="VBoxContainer/Player/Player Stats" instance=ExtResource("1_r4abi")]
+layout_mode = 2
+
+[node name="Stat2" parent="VBoxContainer/Player/Player Stats" instance=ExtResource("1_r4abi")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_opouf")
+
+[node name="Label" parent="VBoxContainer/Player/Player Stats/Stat2" index="0"]
+text = "Health"
+
+[node name="Player Artifacts" type="HBoxContainer" parent="VBoxContainer/Player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Artifact" parent="VBoxContainer/Player/Player Artifacts" instance=ExtResource("1_6dp5h")]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1koy")
+
+[node name="Artifact2" parent="VBoxContainer/Player/Player Artifacts" instance=ExtResource("1_6dp5h")]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1koy")
+
+[node name="Artifact3" parent="VBoxContainer/Player/Player Artifacts" instance=ExtResource("1_6dp5h")]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1koy")
+
 [node name="UIPopupMenu" parent="." instance=ExtResource("1_kby38")]
 visible = false
 layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Card" parent="Control" instance=ExtResource("1_yioce")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -178.0
+offset_right = 72.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(72, 178)
+
+[node name="Card2" parent="Control" instance=ExtResource("1_yioce")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -178.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -0.523599
+pivot_offset = Vector2(72, 178)
+
+[node name="Card3" parent="Control" instance=ExtResource("1_yioce")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -178.0
+offset_right = 144.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 0.523599
+pivot_offset = Vector2(72, 178)
+
+[editable path="VBoxContainer/Enemy/Enemy Stats/Stat2"]
+[editable path="VBoxContainer/Player/Player Stats/Stat2"]

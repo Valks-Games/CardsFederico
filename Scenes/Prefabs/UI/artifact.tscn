@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://87etk10qdqqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihknc"]
+bg_color = Color(1, 0.65098, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="Artifact" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihknc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Artifact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
