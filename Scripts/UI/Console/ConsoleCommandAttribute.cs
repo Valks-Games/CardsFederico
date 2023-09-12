@@ -1,4 +1,4 @@
-﻿namespace Template;
+﻿namespace CardGame;
 
 [AttributeUsage(AttributeTargets.Method)]
 public class ConsoleCommandAttribute : Attribute

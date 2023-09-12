@@ -1,6 +1,6 @@
 using static Godot.DisplayServer;
 
-namespace Template;
+namespace CardGame;
 
 public partial class UIOptionsDisplay : Control
 {

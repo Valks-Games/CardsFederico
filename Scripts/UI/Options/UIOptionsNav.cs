@@ -1,4 +1,4 @@
-namespace Template;
+namespace CardGame;
 
 public partial class UIOptionsNav : Control
 {

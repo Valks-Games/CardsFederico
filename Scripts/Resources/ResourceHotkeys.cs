@@ -1,4 +1,4 @@
-﻿namespace Template;
+﻿namespace CardGame;
 
 using Godot.Collections;
 

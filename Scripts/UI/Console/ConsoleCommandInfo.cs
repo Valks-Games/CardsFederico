@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Template;
+namespace CardGame;
 
 public class ConsoleCommandInfo
 {
